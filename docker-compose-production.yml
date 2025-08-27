@@ -16,7 +16,7 @@ services:
         - traefik.http.middlewares.svodd-static-redirect.redirectRegex.regex=^(https?://)static.svodd.ru/(.*)$$
         - traefik.http.middlewares.svodd-static-redirect.redirectRegex.replacement=$${1}static.svodd.ru/$${2}
         - traefik.http.middlewares.svodd-static-redirect.redirectRegex.permanent=true
-        - traefik.http.routers.svodd-static.middlewares=cabinet-redirect,secure-headers
+        - traefik.http.routers.svodd-static.middlewares=svodd-static-redirect,secure-headers
         - traefik.http.routers.svodd-static.entryPoints=https
         - traefik.http.routers.svodd-static.tls=true
         - traefik.http.routers.svodd-static.tls.certResolver=letsEncrypt
